@@ -12,6 +12,7 @@
 		26AD72CB1D2CEE35008DD78A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26AD72C91D2CEE35008DD78A /* Main.storyboard */; };
 		26AD72CD1D2CEE35008DD78A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26AD72CC1D2CEE35008DD78A /* Assets.xcassets */; };
 		26AD72D01D2CEE35008DD78A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26AD72CE1D2CEE35008DD78A /* LaunchScreen.storyboard */; };
+		26AD72D81D2CEED1008DD78A /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26AD72D71D2CEED1008DD78A /* XCGLogger.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		26AD72CC1D2CEE35008DD78A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26AD72CF1D2CEE35008DD78A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26AD72D11D2CEE35008DD78A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26AD72D71D2CEED1008DD78A /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26AD72D81D2CEED1008DD78A /* XCGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +63,7 @@
 				26AD72CC1D2CEE35008DD78A /* Assets.xcassets */,
 				26AD72CE1D2CEE35008DD78A /* LaunchScreen.storyboard */,
 				26AD72D11D2CEE35008DD78A /* Info.plist */,
+				26AD72D71D2CEED1008DD78A /* XCGLogger.framework */,
 			);
 			path = LeakXCGLogger;
 			sourceTree = "<group>";
@@ -74,6 +78,7 @@
 				26AD72BE1D2CEE35008DD78A /* Sources */,
 				26AD72BF1D2CEE35008DD78A /* Frameworks */,
 				26AD72C01D2CEE35008DD78A /* Resources */,
+				26AD72DA1D2CEEEB008DD78A /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -129,6 +134,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		26AD72DA1D2CEEEB008DD78A /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/XCGLogger.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		26AD72BE1D2CEE35008DD78A /* Sources */ = {
@@ -251,6 +275,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LeakXCGLogger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.infotecs.LeakXCGLogger;
@@ -262,6 +290,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LeakXCGLogger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.infotecs.LeakXCGLogger;
